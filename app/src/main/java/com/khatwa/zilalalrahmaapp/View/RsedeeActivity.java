@@ -2,12 +2,15 @@ package com.khatwa.zilalalrahmaapp.View;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +23,8 @@ import com.khatwa.zilalalrahmaapp.Presenter.Rsedee;
 import com.khatwa.zilalalrahmaapp.R;
 
 public class RsedeeActivity extends AppCompatActivity {
+
+    private int PERMISSION_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,37 +39,75 @@ public class RsedeeActivity extends AppCompatActivity {
             @SuppressLint("ShowToast")
             @Override
             public void onClick(View v) {
-                radioSelect();
+                checkCallPermission();
             }
         });
     }
 
+    private void checkCallPermission() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            radioSelect();
+        } else {
+            askAboutPermission();
+        }
+    }
 
+    private void askAboutPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Alert")
+                    .setMessage("لا نستطع التبرع هكذا")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(RsedeeActivity.this, new String[]{Manifest.permission.CALL_PHONE}, PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).create().show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this,"Can't do that",Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this,"Can't do that",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     private void radioSelect() {
         RadioGroup radioGroupSIMType = findViewById(R.id.radioGroupSIMType);
         //Toast.makeText(getApplication(),"is work",Toast.LENGTH_LONG).show();
         Rsedee rsedee = new Rsedee();
-        if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonSudani).getId()){
+        if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonSudani).getId()) {
             //TODO:Trans to Sudani
-            Toast.makeText(getApplication(),"Sudain",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplication(), "Sudain", Toast.LENGTH_LONG).show();
             sendToSudani();
-        }else if(radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonMTN).getId()){
+        } else if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonMTN).getId()) {
             //TODO:Trans to MTN
-            Toast.makeText(getApplication(),"MTN",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplication(), "MTN", Toast.LENGTH_LONG).show();
             sendToMTN();
 
-        }else if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonZain).getId()) {
+        } else if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonZain).getId()) {
             //TODO:trans to Zain
-            Toast.makeText(getApplication(),"Zain",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplication(), "Zain", Toast.LENGTH_LONG).show();
             sendToZain("0000");
-        }else {
-            Toast.makeText(getApplication(),"PLZ select one",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplication(), "PLZ select one", Toast.LENGTH_LONG).show();
         }
     }
 
-
-    
 
     public void sendToSudani() {
         String userTelephoneNumber = "0122170298";
@@ -86,13 +129,14 @@ public class RsedeeActivity extends AppCompatActivity {
         //
         runUSSD(USSD);
     }
+
     private void runUSSD(String USSD) {
         String ussdCode = USSD;
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(ussdToCallableUri(ussdCode));
-        try{
+        try {
             startActivity(intent);
-        } catch (SecurityException e){
+        } catch (SecurityException e) {
             e.printStackTrace();
         }
     }
@@ -101,12 +145,12 @@ public class RsedeeActivity extends AppCompatActivity {
 
         String uriString = "";
 
-        if(!ussd.startsWith("tel:"))
+        if (!ussd.startsWith("tel:"))
             uriString += "tel:";
 
-        for(char c : ussd.toCharArray()) {
+        for (char c : ussd.toCharArray()) {
 
-            if(c == '#')
+            if (c == '#')
                 uriString += Uri.encode("#");
             else
                 uriString += c;
