@@ -2,7 +2,7 @@
     <string name="app_name">ZilalAlrahmaApp</string>
     <string name="sudani">Sudani</string>
     <string name="mtn">MTN</string>
-    <string name="pay">PAY</string>
+    <string name="donation">donation</string>
     <string name="PhoneNumber">Phone Number</string>
     <string name="zain">Zain</string>
 </resources>

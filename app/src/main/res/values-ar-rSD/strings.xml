@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ظلال الرحمة</string>
+    <string name="PhoneNumber">رقم الهاتف</string>
+    <string name="donation">تبرع</string>
+    <string name="mtn">ام تى ان</string>
+    <string name="sudani">سودانى</string>
+    <string name="zain">زين</string>
+</resources>
