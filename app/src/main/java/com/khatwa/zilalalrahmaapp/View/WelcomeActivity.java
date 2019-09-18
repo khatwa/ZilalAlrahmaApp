@@ -1,9 +1,8 @@
 package com.khatwa.zilalalrahmaapp.View;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.khatwa.zilalalrahmaapp.R;
