@@ -12,7 +12,7 @@
         android:id="@+id/cardViewCompany"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="130dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,12 +23,20 @@
             android:orientation="vertical"
             android:padding="5dp">
 
+            <TextView
+                android:id="@+id/selectNetworkTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_network"
+                android:textColor="@color/color1" />
+
             <RadioGroup
                 android:id="@+id/radioGroupSIMType"
                 android:layout_width="250dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
@@ -65,31 +73,12 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/selectNetworkTextView"
+                android:id="@+id/textViewAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/select_network"
+                android:layout_marginBottom="10dp"
+                android:text="@string/amount"
                 android:textColor="@color/color1" />
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewAmount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewCompany">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
 
             <EditText
                 android:id="@+id/editTextAmount"
@@ -102,29 +91,24 @@
                 android:padding="5dp"
                 android:textColor="@color/color1" />
 
-            <TextView
-                android:id="@+id/textViewAmount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="@string/amount"
-                android:textColor="@color/color1" />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonDonation"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:letterSpacing="0"
         android:text="@string/donation_now"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewAmount" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewCompany" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
