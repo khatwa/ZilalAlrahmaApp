@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">ZilalAlrahmaApp</string>
+    <string name="app_name">Zilal Alrahma</string>
+    <string name="select_network">Select Network:</string>
+    <string name="sudani">Sudani</string>
+    <string name="mtn">MTN</string>
+    <string name="zain">Zain</string>
+    <string name="amount">Amount:</string>
+    <string name="donation_now">Donate Now</string>
 </resources>

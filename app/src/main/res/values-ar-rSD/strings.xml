@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ظلال الرحمة</string>
+    <string name="donation_now">تبرع الان</string>
+    <string name="mtn">إم تي إن</string>
+    <string name="select_network">إختيار الشبكة:</string>
+    <string name="sudani">سوداني</string>
+    <string name="zain">زين</string>
+    <string name="amount">المبلغ:</string>
+</resources>
