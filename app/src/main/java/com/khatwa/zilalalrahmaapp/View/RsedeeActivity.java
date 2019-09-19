@@ -87,8 +87,6 @@ public class RsedeeActivity extends AppCompatActivity {
 
     private void radioSelect() {
         RadioGroup radioGroupSIMType = findViewById(R.id.radioGroupSIMType);
-        //Toast.makeText(getApplication(),"is work",Toast.LENGTH_LONG).show();
-        Rsedee rsedee = new Rsedee();
         if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonSudani).getId()) {
             //TODO:Trans to Sudani
             Toast.makeText(getApplication(), "Sudain", Toast.LENGTH_LONG).show();
