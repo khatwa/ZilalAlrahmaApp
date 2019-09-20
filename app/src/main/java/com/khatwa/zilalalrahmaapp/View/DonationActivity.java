@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp;
+package com.khatwa.zilalalrahmaapp.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.khatwa.zilalalrahmaapp.R;
 
 public class DonationActivity extends AppCompatActivity {
 
