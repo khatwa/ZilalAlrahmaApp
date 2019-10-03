@@ -6,9 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "https://5fb0feae.ngrok.io/ZilalApi/";   // todo  URL
+    public static final String BASE_URL = "https://potior.serveo.net/ZilalApi/";   // todo  URL
     private static Retrofit retrofit = null;
-    public static final String IMAGE_BASE_URL = "https://5fb0feae.ngrok.io/ZilalApi/images/";  // todo  URL
+    public static final String IMAGE_BASE_URL = "https://potior.serveo.net/ZilalApi/images/";  // todo  URL
 
     public static Retrofit getClient() {
         if (retrofit == null) {
