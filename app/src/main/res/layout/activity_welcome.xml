@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.WelcomeActivity"
-    android:background="#1b1c4e"
-    android:theme="@style/Theme.AppCompat.NoActionBar">
+    tools:context=".WelcomeActivity"
+    android:background="#1b1c4e">
 
     <ImageView
         android:scaleType="centerCrop"

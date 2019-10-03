@@ -1,13 +1,10 @@
-package com.khatwa.zilalalrahmaapp.View;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.khatwa.zilalalrahmaapp;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.khatwa.zilalalrahmaapp.Donation.DonationActivity;
-import com.khatwa.zilalalrahmaapp.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -21,7 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent MainIntent = new Intent(WelcomeActivity.this, DonationActivity.class);
+                Intent MainIntent = new Intent(WelcomeActivity.this, MainActivity.class);
                 startActivity(MainIntent);
                 finish();
             }

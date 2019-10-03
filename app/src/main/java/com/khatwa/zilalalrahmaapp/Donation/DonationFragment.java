@@ -1,12 +1,11 @@
 package com.khatwa.zilalalrahmaapp.Donation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -14,28 +13,43 @@ import android.widget.Toast;
 
 import com.khatwa.zilalalrahmaapp.R;
 
-public class DonationActivity extends AppCompatActivity implements DonationContract.View{
+import androidx.fragment.app.Fragment;
 
-    private int amount = 0;
+public class DonationFragment extends Fragment implements DonationContract.View {
+
+    private View view;
     private EditText editTextAmount;
     private RadioGroup radioGroupSIMType;
     private DonationContract.Presenter presenter;
+    public DonationFragment() {
+        // Required empty public constructor
+    }
+
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donation);
-        radioGroupSIMType = findViewById(R.id.radioGroupSIMType);
-        editTextAmount = findViewById(R.id.editTextAmount);
-        Button buttonDonation = findViewById(R.id.buttonDonation);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+         view = inflater.inflate(R.layout.fragment_donation, container, false);
+        radioGroupSIMType = view.findViewById(R.id.radioGroupSIMType);
+        editTextAmount = view.findViewById(R.id.editTextAmount);
+        Button buttonDonation = view.findViewById(R.id.buttonDonation);
         presenter = new DonationPresenter(this);
 
         buttonDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.sendUSSD(getCompanyName(),editTextAmount.getText().toString(),"0000"); // code parameter for zain users
+                presenter.sendUSSD(getCompanyName(),editTextAmount.getText().toString(),"0000"); // todo code parameter for zain users
             }
         });
+        return view;
     }
 
     @Override
@@ -47,17 +61,17 @@ public class DonationActivity extends AppCompatActivity implements DonationContr
 
     @Override
     public void showInputError(String errorMessage) {
-        Toast.makeText(this,errorMessage, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(),errorMessage, Toast.LENGTH_LONG).show();
     }
 
     private String getCompanyName() {
-        if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonSudani).getId()) {
+        if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonSudani).getId()) {
             return "Sudani";
         }
-        else if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonMTN).getId()) {
+        else if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonMTN).getId()) {
             return "MTN";
         }
-        else if (radioGroupSIMType.getCheckedRadioButtonId() == findViewById(R.id.radioButtonZain).getId()) {
+        else if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonZain).getId()) {
             return "Zain";
         }
         else return "null";
@@ -74,11 +88,5 @@ public class DonationActivity extends AppCompatActivity implements DonationContr
                 uriString += c;
         }
         return Uri.parse(uriString);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.dropView();
     }
 }

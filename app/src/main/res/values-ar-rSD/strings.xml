@@ -7,4 +7,9 @@
     <string name="sudani">سوداني</string>
     <string name="zain">زين</string>
     <string name="amount">المبلغ:</string>
+    <string name="no_news">لا يوجد أخبار</string>
+    <string name="communication_error">network error</string>
+    <string name="latest_news">اخر الأخبار</string>
+    <string name="donation">تبرع</string>
+    <string name="news_details">تفاصيل</string>
 </resources>

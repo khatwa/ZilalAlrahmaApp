@@ -13,7 +13,7 @@ public class DonationPresenter implements DonationContract.Presenter {
         if (!amount.equals("") && Integer.parseInt(amount) > 0 && !companyName.equals("null")) {
             String USSD="" ;
             if (companyName.equals("Sudani"))
-            USSD = "*303*" + amount + "*" + "0000000000" + "*0000#";
+            USSD = "*303*" + amount + "*" + "0000000000" + "*0000#"; // todo replace 0000000000 with real phone number
 
             if (companyName.equals("MTN"))
                 USSD = "*121*" + "090000000" + "*" + amount + "*00000#";

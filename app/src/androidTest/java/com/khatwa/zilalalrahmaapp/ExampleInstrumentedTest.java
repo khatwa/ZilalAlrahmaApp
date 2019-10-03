@@ -1,13 +1,13 @@
 package com.khatwa.zilalalrahmaapp;
 
-import android.content.Context;
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import android.content.Context;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Instrumented test, which will execute on an Android device.
