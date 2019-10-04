@@ -8,11 +8,9 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import static androidx.core.content.ContextCompat.getSystemService;
 
 public class Notification {
     private final String CHANNEL_ID = "pn";
-    private final int Notification_ID = 666999;
 
     public Notification(Context context , int icon, String title ,String text) {
         createNotificationChannel(context);
@@ -24,7 +22,8 @@ public class Notification {
         builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
-        notificationManagerCompat.notify(Notification_ID, builder.build());
+        int notification_ID = 666999;
+        notificationManagerCompat.notify(notification_ID, builder.build());
     }
 
     private void createNotificationChannel(Context context) {

@@ -12,7 +12,6 @@ import com.khatwa.zilalalrahmaapp.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private int SPLASH_TIME_OUT = 1000;
     RepeatingNotification repeatingNotification = new RepeatingNotification();
 
     @Override
@@ -20,8 +19,9 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        repeatingNotification.repeatingEevryFriday(getApplicationContext());
+        repeatingNotification.repeatingEveryFriday(getApplicationContext());
 
+        int SPLASH_TIME_OUT = 1000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -29,6 +29,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(MainIntent);
                 finish();
             }
-        },SPLASH_TIME_OUT);
+        }, SPLASH_TIME_OUT);
     }
 }

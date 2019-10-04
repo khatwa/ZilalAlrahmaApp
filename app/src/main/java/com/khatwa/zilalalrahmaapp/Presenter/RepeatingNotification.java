@@ -11,7 +11,7 @@ import static android.content.Context.ALARM_SERVICE;
 
 public class RepeatingNotification {
 
-    public void repeatingEevryFriday(Context context) {
+    public void repeatingEveryFriday(Context context) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
         calendar.set(Calendar.HOUR_OF_DAY,9);
@@ -21,6 +21,7 @@ public class RepeatingNotification {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.ELAPSED_REALTIME_WAKEUP, pendingIntent);
+        assert alarmManager != null;
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
     }
 }
