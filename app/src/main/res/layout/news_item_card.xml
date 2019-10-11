@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/card_margin"
+            android:elevation="@dimen/card_elevation"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="@dimen/card_radius">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:id="@+id/rl_news_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/imageViewNewsImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/news_image_height"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:scaleType="fitXY"
+                        android:contentDescription="Hold news image" />
+
+                <ProgressBar
+                        android:id="@+id/progressBarImageLoading"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        android:visibility="visible" />
+            </RelativeLayout>
+
+
+            <TextView
+                    android:id="@+id/textViewNewsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_news_image"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/card_content_padding"
+                    android:paddingRight="@dimen/card_content_padding"
+                    android:paddingTop="@dimen/card_content_padding"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="@dimen/news_title_size"
+                    android:typeface="sans" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewNewsTitle"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_content_padding"
+                  >
+
+                <TextView
+                        android:id="@+id/textViewNewsLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khartoum"
+                        android:textSize="@dimen/news_date_size"
+                                     />
+
+                <TextView
+                        android:id="@+id/textViewNewsDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/news_date_size" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

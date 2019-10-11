@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/newsListFragment">
+
+
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.khatwa.zilalalrahmaapp.NewsList.NewsListFragment"
+        android:label="@string/latest_news"
+        tools:layout="@layout/fragment_last_news">
+
+        <action
+            android:id="@+id/action_lastNewsFragment_to_newsDetailsFragment"
+            app:destination="@+id/newsDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/donationFragment"
+        android:name="com.khatwa.zilalalrahmaapp.Donation.DonationFragment"
+        android:label="@string/donation"
+        tools:layout="@layout/fragment_donation"
+        >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.khatwa.zilalalrahmaapp.NewsDetails.NewsDetailsFragment"
+        android:label="@string/news_details"
+        tools:layout="@layout/fragment_news_details">
+        <argument
+            android:name="newsId"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
