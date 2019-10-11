@@ -35,10 +35,10 @@ public class NewsDetailsPresenter implements NewsDetailsContract.Presenter, News
     }
 
     @Override
-    public void onFailure(Throwable t) {
+    public void onFailure(String message) {
         if (newsDetailView != null) {
             newsDetailView.hideProgress();
         }
-        newsDetailView.onResponseFailure(t);
+        newsDetailView.onResponseFailure(message);
     }
 }

@@ -47,9 +47,9 @@ public class NewsListPresenter implements NewsListContract.Presenter,NewsListCon
     }
 
     @Override
-    public void onFailure(Throwable t) {
+    public void onFailure(String message) {
 
-        newsListView.onResponseFailure(t);
+        newsListView.onResponseFailure(message);
         if (newsListView != null) {
             newsListView.hideProgress();
         }

@@ -1,5 +1,6 @@
 package com.khatwa.zilalalrahmaapp.NewsList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
+import com.khatwa.zilalalrahmaapp.NewsDetails.NewsDetailsActivity;
 import com.khatwa.zilalalrahmaapp.R;
 
 import java.util.ArrayList;
@@ -16,7 +18,6 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,11 +32,11 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
     private NewsListAdapter newsAdapter;
     private ProgressBar progressBarLoading;
     private static final String TAG = "NewsListFragment";
-    private int pageNo = 0;
+    private int pageNo ;
     //Constants for load more
-    private int previousTotal = 0;
+    private int previousTotal ;
     private boolean loading = true;
-    private int visibleThreshold = 5;
+    private int visibleThreshold = 7;
     private int firstVisibleItem, visibleItemCount, totalItemCount;
 
     private GridLayoutManager mLayoutManager;
@@ -70,6 +71,9 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
         //Initializing presenter
         newsListPresenter = new NewsListPresenter(this);
 
+        pageNo=0;
+        previousTotal=0 ;
+
         newsListPresenter.getNewsListFirstPage();
 
         recyclerViewNewsList.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -77,8 +81,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
-                visibleItemCount = recyclerViewNewsList.getChildCount();
+                visibleItemCount = mLayoutManager.getChildCount();
                 totalItemCount = mLayoutManager.getItemCount();
                 firstVisibleItem = mLayoutManager.findFirstVisibleItemPosition();
 
@@ -115,12 +118,13 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
     public void setDataToRecyclerView(List<NewsItem> newsArrayList) {
         newsList.addAll(newsArrayList);
         newsAdapter.notifyDataSetChanged();
+        Log.e(TAG,"new data page= " + pageNo);
         pageNo++;
     }
 
     @Override
-    public void onResponseFailure(Throwable throwable) {
-        Log.e(TAG, throwable.getMessage());
+    public void onResponseFailure(String message) {
+        Log.e(TAG, message);
         Toast.makeText(getActivity(), getString(R.string.communication_error), Toast.LENGTH_LONG).show();
     }
 
@@ -130,9 +134,14 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
         if (position == -1) {
             return;
         }
-
-        Bundle bundle = new Bundle();
-        bundle.putInt("newsId", newsList.get(position).getId());
-        Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.action_lastNewsFragment_to_newsDetailsFragment, bundle);
+       // Bundle bundle = new Bundle();
+        //bundle.putInt("newsId", newsList.get(position).getId());
+        //Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.action_lastNewsFragment_to_newsDetailsFragment, bundle);
+        Intent i = new Intent(getActivity(), NewsDetailsActivity.class) ;
+        i.putExtra("newsId",newsList.get(position).getId());
+        startActivity(i);
     }
+
+
+
 }

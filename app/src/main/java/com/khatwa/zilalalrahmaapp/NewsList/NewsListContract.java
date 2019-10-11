@@ -15,7 +15,7 @@ public interface NewsListContract {
 
         void setDataToRecyclerView(List<NewsItem> newsArrayList);
 
-        void onResponseFailure(Throwable throwable);
+        void onResponseFailure(String message);
 
     }
 
@@ -34,7 +34,7 @@ public interface NewsListContract {
         interface OnFinishedListener {
             void onFinished(List<NewsItem>newsArrayList);
 
-            void onFailure(Throwable t);
+            void onFailure(String message);
         }
 
         void getNewsList(OnFinishedListener onFinishedListener,int pageNo);

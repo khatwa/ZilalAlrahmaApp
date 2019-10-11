@@ -10,9 +10,7 @@
         android:id="@+id/newsListFragment"
         android:name="com.khatwa.zilalalrahmaapp.NewsList.NewsListFragment"
         android:label="@string/latest_news"
-        tools:layout="@layout/fragment_last_news"
-        app:popUpTo="@id/donationFragment"
-        app:popUpToInclusive="true">
+        tools:layout="@layout/fragment_last_news">
 
         <action
             android:id="@+id/action_lastNewsFragment_to_newsDetailsFragment"

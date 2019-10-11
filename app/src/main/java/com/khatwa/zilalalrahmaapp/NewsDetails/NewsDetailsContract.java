@@ -9,7 +9,7 @@ public interface NewsDetailsContract {
         interface OnFinishedListener {
             void onFinished(NewsItem news);
 
-            void onFailure(Throwable t);
+            void onFailure(String message);
         }
 
         void getNewsDetails(OnFinishedListener onFinishedListener, int newsId);
@@ -23,7 +23,7 @@ public interface NewsDetailsContract {
 
         void setDataToViews(NewsItem news);
 
-        void onResponseFailure(Throwable throwable);
+        void onResponseFailure(String Message);
     }
 
     interface Presenter {

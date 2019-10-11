@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 import com.khatwa.zilalalrahmaapp.R;
@@ -56,7 +57,7 @@ public class NewsDetailsFragment extends Fragment  implements NewsDetailsContrac
     }
 
     @Override
-    public void onResponseFailure(Throwable throwable) {
-
+    public void onResponseFailure(String message) {
+        Toast.makeText(getContext(), R.string.communication_error, Toast.LENGTH_SHORT).show();
     }
 }
