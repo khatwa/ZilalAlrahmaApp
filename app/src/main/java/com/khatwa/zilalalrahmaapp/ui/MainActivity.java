@@ -1,9 +1,10 @@
-package com.khatwa.zilalalrahmaapp;
+package com.khatwa.zilalalrahmaapp.ui;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.khatwa.zilalalrahmaapp.R;
 
 import java.util.HashSet;
 import java.util.Set;

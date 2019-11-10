@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.NewsList;
+package com.khatwa.zilalalrahmaapp.ui.NewesList;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,16 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
-import com.khatwa.zilalalrahmaapp.NewsDetails.NewsDetailsActivity;
+import com.khatwa.zilalalrahmaapp.MyApplication;
 import com.khatwa.zilalalrahmaapp.R;
+import com.khatwa.zilalalrahmaapp.di.component.DaggerNewsListComponent;
+import com.khatwa.zilalalrahmaapp.di.module.NewsListMvpModule;
+import com.khatwa.zilalalrahmaapp.ui.NewsDetails.NewsDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,11 +27,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static com.khatwa.zilalalrahmaapp.NewsList.GridSpacingItemDecoration.dpToPx;
+import static com.khatwa.zilalalrahmaapp.ui.NewesList.GridSpacingItemDecoration.dpToPx;
 
 public class NewsListFragment extends Fragment implements NewsListContract.View, NewsItemClickListener {
 
-    private NewsListPresenter newsListPresenter;
+    @Inject
+    NewsListPresenter newsListPresenter;
     private RecyclerView recyclerViewNewsList;
     private List<NewsItem> newsList;
     private NewsListAdapter newsAdapter;
@@ -55,6 +61,13 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
                              Bundle savedInstanceState) {
 
         View myView = inflater.inflate(R.layout.fragment_last_news, container, false);
+
+        DaggerNewsListComponent.builder()
+                .appComponent(MyApplication.get(getActivity()).component())
+                .newsListMvpModule(new NewsListMvpModule(this))
+                .build()
+                .inject(this);
+
         recyclerViewNewsList = myView.findViewById(R.id.recyclerViewNewsList);
 
         newsList = new ArrayList<>();
@@ -69,7 +82,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
         progressBarLoading = myView.findViewById(R.id.progressBarLoading);
 
         //Initializing presenter
-        newsListPresenter = new NewsListPresenter(this);
+       // newsListPresenter = new NewsListPresenter(this);
 
         pageNo=0;
         previousTotal=0 ;

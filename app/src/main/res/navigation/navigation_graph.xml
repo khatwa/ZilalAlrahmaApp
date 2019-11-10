@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/newsListFragment"
-        android:name="com.khatwa.zilalalrahmaapp.NewsList.NewsListFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.NewesList.NewsListFragment"
         android:label="@string/latest_news"
         tools:layout="@layout/fragment_last_news">
 
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/donationFragment"
-        android:name="com.khatwa.zilalalrahmaapp.Donation.DonationFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.Donation.DonationFragment"
         android:label="@string/donation"
         tools:layout="@layout/fragment_donation"
         >
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/newsDetailsFragment"
-        android:name="com.khatwa.zilalalrahmaapp.NewsDetails.NewsDetailsFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.NewsDetails.NewsDetailsFragment"
         android:label="@string/news_details"
         tools:layout="@layout/fragment_news_details">
         <argument

@@ -1,15 +1,18 @@
-package com.khatwa.zilalalrahmaapp.NewsDetails;
+package com.khatwa.zilalalrahmaapp.ui.NewsDetails;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
+
+import javax.inject.Inject;
 
 public class NewsDetailsPresenter implements NewsDetailsContract.Presenter, NewsDetailsContract.Model.OnFinishedListener {
 
     private NewsDetailsContract.View newsDetailView;
-    private NewsDetailsContract.Model newsDetailsModel;
+    private NewsDetailsModel newsDetailsModel;
 
-    public NewsDetailsPresenter(NewsDetailsContract.View newsDetailView) {
+    @Inject
+    public NewsDetailsPresenter(NewsDetailsContract.View newsDetailView,NewsDetailsModel newsDetailsModel) {
         this.newsDetailView = newsDetailView;
-        this.newsDetailsModel = new NewsDetailsModel();
+        this.newsDetailsModel = newsDetailsModel;
     }
 
     @Override

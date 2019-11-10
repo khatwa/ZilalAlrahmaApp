@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.NewsDetails;
+package com.khatwa.zilalalrahmaapp.ui.NewsDetails;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,7 +36,7 @@ public class NewsDetailsFragment extends Fragment  implements NewsDetailsContrac
         progressBarLoading = view.findViewById(R.id.progressBarLoading);
         int newsId=getArguments().getInt("newsId");
 
-        newsDetailsPresenter = new NewsDetailsPresenter(this);
+//        newsDetailsPresenter = new NewsDetailsPresenter(this);
         newsDetailsPresenter.requestNewsData(newsId);
         return view;
     }

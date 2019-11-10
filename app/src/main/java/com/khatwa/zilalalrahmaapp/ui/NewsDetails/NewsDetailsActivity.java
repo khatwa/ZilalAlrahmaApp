@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.NewsDetails;
+package com.khatwa.zilalalrahmaapp.ui.NewsDetails;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,14 +7,20 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.khatwa.zilalalrahmaapp.MyApplication;
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 import com.khatwa.zilalalrahmaapp.R;
+import com.khatwa.zilalalrahmaapp.di.component.DaggerNewsDetailsComponent;
+import com.khatwa.zilalalrahmaapp.di.module.NewsDetailsMvpModule;
+
+import javax.inject.Inject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewsDetailsActivity extends AppCompatActivity implements NewsDetailsContract.View {
 
-    private NewsDetailsPresenter newsDetailsPresenter;
+    @Inject
+    NewsDetailsPresenter presenter;
 
     private ProgressBar progressBarLoading;
     private TextView textViewDetails;
@@ -24,6 +30,13 @@ public class NewsDetailsActivity extends AppCompatActivity implements NewsDetail
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_details);
 
+
+        DaggerNewsDetailsComponent.builder()
+                .appComponent(MyApplication.get(this).component())
+                .newsDetailsMvpModule(new NewsDetailsMvpModule(this))
+                .build()
+                .inject(this);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -32,8 +45,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements NewsDetail
         int newsId=getIntent().getIntExtra("newsId",0);
         Log.e(TAG, String.valueOf(newsId));
 
-        newsDetailsPresenter = new NewsDetailsPresenter(this);
-        newsDetailsPresenter.requestNewsData(newsId);
+        presenter.requestNewsData(newsId);
     }
 
     @Override
@@ -66,7 +78,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements NewsDetail
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        newsDetailsPresenter.onDestroy();
+        presenter.onDestroy();
     }
 
 }

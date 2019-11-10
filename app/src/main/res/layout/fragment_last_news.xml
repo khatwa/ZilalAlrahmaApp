@@ -3,7 +3,8 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".NewsList.NewsListFragment">
+             android:background="#f6f6f6"
+             tools:context=".NewsList.NewsListFragment" >
 
 
         <androidx.recyclerview.widget.RecyclerView

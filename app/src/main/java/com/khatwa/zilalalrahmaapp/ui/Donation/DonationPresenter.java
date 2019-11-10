@@ -1,10 +1,14 @@
-package com.khatwa.zilalalrahmaapp.Donation;
+package com.khatwa.zilalalrahmaapp.ui.Donation;
+
+import javax.inject.Inject;
 
 public class DonationPresenter implements DonationContract.Presenter {
 
     private DonationContract.View view;
 
-    public DonationPresenter(DonationContract.View view) {
+    @Inject
+   public DonationPresenter(DonationContract.View view) {
+
         this.view = view;
     }
 
