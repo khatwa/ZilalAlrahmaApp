@@ -10,7 +10,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
+        <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton
+        </item>
     </style>
 
 
@@ -21,4 +22,8 @@
 
     <style name="AppTheme.ThemeOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
 
+    <style name="SplashTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground" >@drawable/splash_view</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>

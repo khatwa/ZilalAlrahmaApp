@@ -76,7 +76,6 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
                 .build()
                 .inject(this);
 
-        recyclerViewNewsList = myView.findViewById(R.id.recyclerViewNewsList);
         RecyclerView recyclerViewNewsList = myView.findViewById(R.id.recyclerViewNewsList);
 
         newsList = new ArrayList<>();
