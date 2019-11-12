@@ -109,6 +109,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             );
                 break;
 
+            case R.id.menu_education:
+                if (navController.getCurrentDestination().getId() != R.id.educationFragment)
+                    navController
+                            .navigate(R.id.educationFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
+                break;
+
+            case R.id.menu_social:
+                if (navController.getCurrentDestination().getId() != R.id.socialFragment)
+                    navController
+                            .navigate(R.id.socialFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
+                break;
+
+            case R.id.menu_water:
+                if (navController.getCurrentDestination().getId() != R.id.waterFragment)
+                    navController
+                            .navigate(R.id.waterFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
+                break;
+
             case R.id.menu_whoWeAre:
                 if (navController.getCurrentDestination().getId() != R.id.whoWeAreFragment)
                     navController
