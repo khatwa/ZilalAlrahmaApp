@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.NewsList;
+package com.khatwa.zilalalrahmaapp.ui.NewesList;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -14,8 +14,8 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.khatwa.zilalalrahmaapp.Constants;
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
-import com.khatwa.zilalalrahmaapp.Network.ApiClient;
 import com.khatwa.zilalalrahmaapp.R;
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.MyView
 
         // loading news cover using Glide library
         Glide.with(newsListFragment)
-                .load(ApiClient.IMAGE_BASE_URL + newsItem.getImagePath())
+                .load(Constants.IMAGE_BASE_URL + newsItem.getImagePath())
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {

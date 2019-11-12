@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".NewsDetails.NewsDetailsActivity">
+    tools:context=".ui.NewsDetails.NewsDetailsActivity">
 
     <ProgressBar
         android:id="@+id/progressBarLoading"

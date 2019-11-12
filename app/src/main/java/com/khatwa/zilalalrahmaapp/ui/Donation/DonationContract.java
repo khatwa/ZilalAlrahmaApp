@@ -1,13 +1,13 @@
-package com.khatwa.zilalalrahmaapp.Donation;
+package com.khatwa.zilalalrahmaapp.ui.Donation;
 
 public interface DonationContract {
 
-    interface View {
+   public interface View {
         void showDialer(String USSD);
        void showInputError(String errorMessage);
     }
 
-    interface Presenter{
+  public interface Presenter{
         void sendUSSD(String companyName , String amount,String code);  // code parameter for Zain only
         void dropView();
     }

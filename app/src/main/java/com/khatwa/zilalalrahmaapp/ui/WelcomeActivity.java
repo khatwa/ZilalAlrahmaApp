@@ -1,8 +1,10 @@
-package com.khatwa.zilalalrahmaapp;
+package com.khatwa.zilalalrahmaapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.khatwa.zilalalrahmaapp.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 

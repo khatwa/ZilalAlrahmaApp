@@ -1,19 +1,21 @@
-package com.khatwa.zilalalrahmaapp.NewsList;
+package com.khatwa.zilalalrahmaapp.ui.NewesList;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 
 import java.util.List;
 
-public class NewsListPresenter implements NewsListContract.Presenter,NewsListContract.Model.OnFinishedListener {
+import javax.inject.Inject;
+
+public class NewsListPresenter implements NewsListContract.Presenter, NewsListContract.Model.OnFinishedListener {
     private NewsListContract.View newsListView;
 
-    private NewsListContract.Model newsListModel;
+    private NewsListModel newsListModel;
 
-    public NewsListPresenter(NewsListContract.View newsListView) {
+    @Inject
+    public NewsListPresenter(NewsListContract.View newsListView,NewsListModel newsListModel) {
         this.newsListView = newsListView;
-        newsListModel = new NewsListModel();
+        this.newsListModel =newsListModel;
     }
-
 
     @Override
     public void onDestroy() {

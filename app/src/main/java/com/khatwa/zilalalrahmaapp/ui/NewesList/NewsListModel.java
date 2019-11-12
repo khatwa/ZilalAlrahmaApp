@@ -1,15 +1,16 @@
-package com.khatwa.zilalalrahmaapp.NewsList;
+package com.khatwa.zilalalrahmaapp.ui.NewesList;
 
 import android.util.Log;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 import com.khatwa.zilalalrahmaapp.Model.NewsListResponse;
-import com.khatwa.zilalalrahmaapp.Network.ApiClient;
 import com.khatwa.zilalalrahmaapp.Network.ApiInterface;
 
 import org.json.JSONObject;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,13 +18,17 @@ import retrofit2.Response;
 
 public class NewsListModel implements NewsListContract.Model {
     private static final String TAG = "NewsListModel";
+    private ApiInterface ApiInterface;
+
+    @Inject
+    public NewsListModel(ApiInterface ApiInterface) {
+        this.ApiInterface = ApiInterface;
+    }
 
     @Override
     public void getNewsList(final OnFinishedListener onFinishedListener, int pageNo) {
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
 
-        Call<NewsListResponse> call = apiService.getNewsList(pageNo);
+        Call<NewsListResponse> call = ApiInterface.getNewsList(pageNo);
         call.enqueue(new Callback<NewsListResponse>() {
             @Override
             public void onResponse(Call<NewsListResponse> call, Response<NewsListResponse> response) {

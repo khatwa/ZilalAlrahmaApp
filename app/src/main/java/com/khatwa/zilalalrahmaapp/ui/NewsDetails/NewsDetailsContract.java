@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.NewsDetails;
+package com.khatwa.zilalalrahmaapp.ui.NewsDetails;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 
