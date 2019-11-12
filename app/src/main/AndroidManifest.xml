@@ -9,7 +9,7 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".WateringAxisActivity"></activity>
         <activity android:name=".SocialServicesHubActivity" />
         <activity android:name=".EducationActivity" />
