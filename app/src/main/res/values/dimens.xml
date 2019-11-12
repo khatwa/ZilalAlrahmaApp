@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="card_spacing">8dp</dimen>
+    <dimen name="card_spacing">4dp</dimen>
     <dimen name="card_margin">2dp</dimen>
     <dimen name="card_elevation">3dp</dimen>
     <dimen name="card_radius">5dp</dimen>

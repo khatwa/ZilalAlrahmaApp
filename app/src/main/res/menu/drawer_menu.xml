@@ -4,14 +4,33 @@
     <group android:checkableBehavior="single">
 
         <item
-                android:id="@+id/menu_latest_news"
-                android:title="@string/latest_news" />
+            android:id="@+id/menu_latest_news"
+            android:title="@string/latest_news" />
 
         <item
-                android:id="@+id/menu_donation"
-                android:menuCategory = "secondary"
-                android:title="@string/donation" />
+            android:id="@+id/menu_donation"
+            android:menuCategory="secondary"
+            android:title="@string/donation" />
 
+        <item
+            android:id="@+id/menu_education"
+            android:menuCategory="secondary"
+            android:title="@string/education" />
+
+        <item
+            android:id="@+id/menu_social"
+            android:menuCategory="secondary"
+            android:title="@string/social_services_hub" />
+
+        <item
+            android:id="@+id/menu_water"
+            android:menuCategory="secondary"
+            android:title="@string/watering_axis" />
+
+        <item
+            android:id="@+id/menu_whoWeAre"
+            android:menuCategory="secondary"
+            android:title="@string/who_we_are" />
 
 
     </group>

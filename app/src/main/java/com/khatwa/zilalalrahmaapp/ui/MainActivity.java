@@ -48,9 +48,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationView);
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-         Set<Integer> topLevelDestinations = new HashSet<>();
+        Set<Integer> topLevelDestinations = new HashSet<>();
         topLevelDestinations.add(R.id.newsListFragment);
         topLevelDestinations.add(R.id.donationFragment);
+        topLevelDestinations.add(R.id.socialFragment);
+        topLevelDestinations.add(R.id.waterFragment);
+        topLevelDestinations.add(R.id.whoWeAreFragment);
+        topLevelDestinations.add(R.id.educationFragment);
+
         appBarConfiguration = new AppBarConfiguration.Builder(topLevelDestinations)
                 .setDrawerLayout(drawerLayout)
                 .build();
@@ -87,27 +92,75 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (id) {
 
             case R.id.menu_latest_news:
-             if (navController.getCurrentDestination().getId()!= R.id.newsListFragment)
-                navController
-                        .navigate(R.id.newsListFragment,
-                                null,
-                                new NavOptions.Builder()
-                                        .setPopUpTo(R.id.donationFragment,
-                                                true)
-                                        .build()
-                        );
+                if (navController.getCurrentDestination().getId() != R.id.newsListFragment)
+                    navController
+                            .navigate(R.id.newsListFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.donationFragment,
+                                                    true)
+                                            .build()
+                            );
                 break;
 
             case R.id.menu_donation:
-                if (navController.getCurrentDestination().getId()!= R.id.donationFragment)
-               navController
-                        .navigate(R.id.donationFragment,
-                                null,
-                                new NavOptions.Builder()
-                                        .setPopUpTo(R.id.newsListFragment,
-                                                true)
-                                        .build()
-                        );
+                if (navController.getCurrentDestination().getId() != R.id.donationFragment)
+                    navController
+                            .navigate(R.id.donationFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
+                break;
+
+            case R.id.menu_education:
+                if (navController.getCurrentDestination().getId() != R.id.educationFragment)
+                    navController
+                            .navigate(R.id.educationFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
+                break;
+
+            case R.id.menu_social:
+                if (navController.getCurrentDestination().getId() != R.id.socialFragment)
+                    navController
+                            .navigate(R.id.socialFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
+                break;
+
+            case R.id.menu_water:
+                if (navController.getCurrentDestination().getId() != R.id.waterFragment)
+                    navController
+                            .navigate(R.id.waterFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
+                break;
+
+            case R.id.menu_whoWeAre:
+                if (navController.getCurrentDestination().getId() != R.id.whoWeAreFragment)
+                    navController
+                            .navigate(R.id.whoWeAreFragment,
+                                    null,
+                                    new NavOptions.Builder()
+                                            .setPopUpTo(R.id.newsListFragment,
+                                                    true)
+                                            .build()
+                            );
                 break;
         }
         return true;

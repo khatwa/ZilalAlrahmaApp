@@ -11,4 +11,12 @@
     <string name="latest_news">Latest News</string>
     <string name="donation">Donation</string>
     <string name="news_details">news details</string>
+    <string name="whoarewe" translatable="false">منظمة ظلال الرحمة الخيرية هي منظمة تطوعية شبابية، لا تتبع لأي جهة، تهدف الي مساندة الضعيف واغاثة الملهوف ورسم الابتسامة علي شفاه تشققت وراء السعي للعيش الكريم، اعضاءها من المتطوعين الشباب الحاملين لهموم وطنهم ومجتمعهم. نشأت المنظمة في العام 2004 من داخل احدى الجامعات من خلال فكرة طالبتين لمساعدة الاسر الفقيرة ومن ثم تجمع حولهم العديد من الشباب وبدأت المسيرة والتي امتدت الي يومنا هذا. تهدف المنظمة الي خلق مجتمع متكافل ومساعدة الفئات الاضعف والاشد حوجه وتوفير التعليم للأطفال لبناء مستقبل مشرق ومساعدة المرضي وتوفير اسباب الحياة الكريمة لكافة افراد المجتمع كما تهدف الي استثمار طاقات الشباب وحماسهم، تعمل ايضا على التمسك بالقيم الدينية والاخلاقية والرقي بالمجتمع. تعمل المنظمة في العديد من المجالات مثل التعليم والصحة والسقيا والخدمات الاجتماعية، كما تقوم تقديم المساعدات العاجلة لذوي الحوجه وتعمل ايضا في مساعدة الاسر الفقيرة عن طريق تقديم مشاريع دخل صغيرة ومحاولة توفير ظروف حياة أفضل لكل ذوي الحوجه وقد فازت المنظمة بجائزة أفضل عمل تطوعي في الوطن العريي في مسابقة ضمت الالاف المنظمات ضمن برنامج خواطر 11 على قناة ام بيي سي. تدار المنظمة بواسطة هيكل تنفيذي يتم انتخابه سنويا من اعضاء الجمعية العمومية، واغلب اعضاء المنظمة هم من المتطوعين الشباب والمنظمة مسجلة رسميا في مفوضية العون الانساني منذ العام 2004 والي الان</string>
+    <string name="who_we_are">Who we are</string>
+    <string name="watering_axis">Watering axis</string>
+    <string name="waterSub">The watering axis aims to connect the water networks to the houses that suffer from technical and material crises in connection with the connection of water networks, in addition to the rehabilitation of the peripheral schools with thermal water coolers and drilling wells in areas suffering from water scarcity.</string>
+    <string name="education">Education</string>
+    <string name="educationSub">Providing textbooks to students in peripheral schools by collecting books from private schools, rehabilitating damaged ones, and then redistributing them to needy schools.</string>
+    <string name="social_services_hub">Social Services Hub</string>
+    <string name="social_services_hub_sub">It targets poor and needy families to raise their social level by providing direct support to small income projects for needy families or support for shelter projects and support for orphans</string>
 </resources>

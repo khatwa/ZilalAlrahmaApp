@@ -22,8 +22,39 @@
         android:id="@+id/donationFragment"
         android:name="com.khatwa.zilalalrahmaapp.ui.Donation.DonationFragment"
         android:label="@string/donation"
-        tools:layout="@layout/fragment_donation"
-        >
+        tools:layout="@layout/fragment_donation">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/educationFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.education.EducationFragment"
+        android:label="@string/donation"
+        tools:layout="@layout/fragment_donation">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.socialserviceshub.SocialServicesHubFragment"
+        android:label="@string/donation"
+        tools:layout="@layout/fragment_donation">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/waterFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.wateringaxis.WateringAxisFragment"
+        android:label="@string/donation"
+        tools:layout="@layout/fragment_donation">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/whoWeAreFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.whoweare.WhoWeAreFragment"
+        android:label="@string/who_we_are"
+        tools:layout="@layout/fragment_donation">
 
     </fragment>
 

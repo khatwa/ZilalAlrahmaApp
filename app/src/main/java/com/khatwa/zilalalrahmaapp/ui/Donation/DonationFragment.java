@@ -29,10 +29,10 @@ public class DonationFragment extends Fragment implements DonationContract.View 
 
     @Inject
     DonationPresenter presenter;
-
     public DonationFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,13 @@ public class DonationFragment extends Fragment implements DonationContract.View 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         view = inflater.inflate(R.layout.fragment_donation, container, false);
+        view = inflater.inflate(R.layout.fragment_donation, container, false);
 
         DaggerDonationComponent.builder()
                 .appComponent(MyApplication.get(getActivity()).component())
                .donationMvpModule(new DonationMvpModule(this))
                 .build()
                 .inject(this);
-
         radioGroupSIMType = view.findViewById(R.id.radioGroupSIMType);
         editTextAmount = view.findViewById(R.id.editTextAmount);
         Button buttonDonation = view.findViewById(R.id.buttonDonation);
@@ -60,7 +59,7 @@ public class DonationFragment extends Fragment implements DonationContract.View 
         buttonDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.sendUSSD(getCompanyName(),editTextAmount.getText().toString(),"0000"); // todo code parameter for zain users
+                presenter.sendUSSD(getCompanyName(), editTextAmount.getText().toString(), "0000"); // todo code parameter for zain users
             }
         });
         return view;
@@ -75,20 +74,17 @@ public class DonationFragment extends Fragment implements DonationContract.View 
 
     @Override
     public void showInputError(String errorMessage) {
-        Toast.makeText(getActivity(),errorMessage, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
     }
 
     private String getCompanyName() {
         if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonSudani).getId()) {
             return "Sudani";
-        }
-        else if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonMTN).getId()) {
+        } else if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonMTN).getId()) {
             return "MTN";
-        }
-        else if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonZain).getId()) {
+        } else if (radioGroupSIMType.getCheckedRadioButtonId() == view.findViewById(R.id.radioButtonZain).getId()) {
             return "Zain";
-        }
-        else return "null";
+        } else return "null";
     }
 
     private Uri ussdToCallableUri(String ussd) {
