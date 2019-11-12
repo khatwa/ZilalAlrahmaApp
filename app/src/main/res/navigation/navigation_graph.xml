@@ -22,8 +22,15 @@
         android:id="@+id/donationFragment"
         android:name="com.khatwa.zilalalrahmaapp.Donation.DonationFragment"
         android:label="@string/donation"
-        tools:layout="@layout/fragment_donation"
-        >
+        tools:layout="@layout/fragment_donation">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/whoWeAreFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.whoweare.WhoWeAreFragment"
+        android:label="@string/who_we_are"
+        tools:layout="@layout/fragment_donation">
 
     </fragment>
 

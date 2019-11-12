@@ -12,6 +12,11 @@
                 android:menuCategory = "secondary"
                 android:title="@string/donation" />
 
+        <item
+            android:id="@+id/menu_whoWeAre"
+            android:menuCategory = "secondary"
+            android:title="@string/who_we_are" />
+
 
 
     </group>
