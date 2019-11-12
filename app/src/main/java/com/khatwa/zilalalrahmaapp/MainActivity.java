@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Set<Integer> topLevelDestinations = new HashSet<>();
         topLevelDestinations.add(R.id.newsListFragment);
         topLevelDestinations.add(R.id.donationFragment);
+        topLevelDestinations.add(R.id.socialFragment);
+        topLevelDestinations.add(R.id.waterFragment);
+        topLevelDestinations.add(R.id.whoWeAreFragment);
+        topLevelDestinations.add(R.id.educationFragment);
+
         appBarConfiguration = new AppBarConfiguration.Builder(topLevelDestinations)
                 .setDrawerLayout(drawerLayout)
                 .build();
