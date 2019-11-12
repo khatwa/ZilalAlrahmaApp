@@ -1,7 +1,7 @@
 package com.khatwa.zilalalrahmaapp.di.module;
 
 import com.khatwa.zilalalrahmaapp.Constants;
-import com.khatwa.zilalalrahmaapp.Network.APIInterface;
+import com.khatwa.zilalalrahmaapp.Network.ApiInterface;
 
 import javax.inject.Singleton;
 
@@ -15,8 +15,8 @@ public class RetrofitModule {
 
     @Provides
     @Singleton
-    APIInterface getApiInterface(Retrofit retroFit) {
-        return retroFit.create(APIInterface.class);
+    ApiInterface getApiInterface(Retrofit retroFit) {
+        return retroFit.create(ApiInterface.class);
     }
 
     @Provides

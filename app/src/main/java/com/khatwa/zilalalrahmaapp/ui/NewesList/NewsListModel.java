@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 import com.khatwa.zilalalrahmaapp.Model.NewsListResponse;
-import com.khatwa.zilalalrahmaapp.Network.APIInterface;
+import com.khatwa.zilalalrahmaapp.Network.ApiInterface;
 
 import org.json.JSONObject;
 
@@ -18,17 +18,17 @@ import retrofit2.Response;
 
 public class NewsListModel implements NewsListContract.Model {
     private static final String TAG = "NewsListModel";
-    private APIInterface apiInterface;
+    private ApiInterface ApiInterface;
 
     @Inject
-    public NewsListModel(APIInterface apiInterface) {
-        this.apiInterface = apiInterface;
+    public NewsListModel(ApiInterface ApiInterface) {
+        this.ApiInterface = ApiInterface;
     }
 
     @Override
     public void getNewsList(final OnFinishedListener onFinishedListener, int pageNo) {
 
-        Call<NewsListResponse> call = apiInterface.getNewsList(pageNo);
+        Call<NewsListResponse> call = ApiInterface.getNewsList(pageNo);
         call.enqueue(new Callback<NewsListResponse>() {
             @Override
             public void onResponse(Call<NewsListResponse> call, Response<NewsListResponse> response) {

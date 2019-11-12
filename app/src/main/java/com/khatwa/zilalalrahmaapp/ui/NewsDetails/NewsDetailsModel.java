@@ -3,7 +3,7 @@ package com.khatwa.zilalalrahmaapp.ui.NewsDetails;
 import android.util.Log;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
-import com.khatwa.zilalalrahmaapp.Network.APIInterface;
+import com.khatwa.zilalalrahmaapp.Network.ApiInterface;
 
 import org.json.JSONObject;
 
@@ -15,20 +15,20 @@ import retrofit2.Response;
 
 public class NewsDetailsModel implements NewsDetailsContract.Model {
 
-    private APIInterface apiInterface;
+    private ApiInterface ApiInterface;
     private final String TAG = "NewsDetailsModel";
 
     @Inject
-    public NewsDetailsModel(APIInterface apiInterface){
-        this.apiInterface=apiInterface;
+    public NewsDetailsModel(ApiInterface ApiInterface){
+        this.ApiInterface=ApiInterface;
     }
 
     @Override
     public void getNewsDetails(final NewsDetailsContract.Model.OnFinishedListener onFinishedListener, int newsId) {
-//        APIInterface apiService =
-//                ApiClient.getClient().create(APIInterface.class);
+//        ApiInterface apiService =
+//                ApiClient.getClient().create(ApiInterface.class);
 
-        Call<NewsItem> call = apiInterface.getNewsDetails(newsId);
+        Call<NewsItem> call = ApiInterface.getNewsDetails(newsId);
         call.enqueue(new Callback<NewsItem>() {
             @Override
             public void onResponse(Call<NewsItem> call, Response<NewsItem> response) {
