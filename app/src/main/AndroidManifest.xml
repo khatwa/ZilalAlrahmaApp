@@ -10,10 +10,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WhoWeAreActivity"></activity>
+        <activity android:name=".EducationActivity"></activity>
+        <activity android:name=".WhoWeAreActivity" />
         <activity
             android:name=".NewsDetails.NewsDetailsActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
