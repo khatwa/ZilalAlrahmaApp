@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "150603367628",
+    "firebase_url": "https://khatwazilal.firebaseio.com",
+    "project_id": "khatwazilal",
+    "storage_bucket": "khatwazilal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150603367628:android:75fc8e6acc3ef98f67ee69",
+        "android_client_info": {
+          "package_name": "com.khatwa.zilalalrahmaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150603367628-d3k83cdhpl190drvgj81nf22e46ko5o2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.khatwa.zilalalrahmaapp",
+            "certificate_hash": "136b638c7d4294372e27a0b77a7a22833d612305"
+          }
+        },
+        {
+          "client_id": "150603367628-o89p0sk68er20gq464a7qeldkv4hjq0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAda4b7ZXbcf1aXw5k1gdu7nRgfvaWgee0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150603367628-o89p0sk68er20gq464a7qeldkv4hjq0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- START xml_defaults -->
+<defaultsMap>
+    <entry>
+        <key>sudani</key>
+        <value>0123681805</value>
+    </entry>
+    <entry>
+        <key>zain</key>
+        <value>0911497241</value>
+    </entry>
+    <entry>
+        <key>mtn</key>
+        <value>0</value>
+    </entry>
+</defaultsMap>
+    <!-- END xml_defaults -->
