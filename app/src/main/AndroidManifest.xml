@@ -3,6 +3,7 @@
     package="com.khatwa.zilalalrahmaapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name=".MyApplication"
@@ -26,6 +27,13 @@
         <activity
             android:name=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <receiver android:name=".Notifications.AlarmReceiver"/>
+        <receiver android:name=".Notifications.AlarmBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
