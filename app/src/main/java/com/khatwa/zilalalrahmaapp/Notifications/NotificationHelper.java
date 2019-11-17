@@ -25,21 +25,23 @@ public class NotificationHelper {
         PendingIntent alarmIntentRTC = PendingIntent.getBroadcast(context, ALARM_TYPE_RTC, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManagerRTC = (AlarmManager) context.getSystemService(ALARM_SERVICE);
 
+        assert alarmManagerRTC != null;
         alarmManagerRTC.setInexactRepeating(AlarmManager.RTC_WAKEUP,
                 calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntentRTC);
     }
 
-    public static void scheduleRepeatingElapsedNotification(Context context) {
+    static void scheduleRepeatingElapsedNotification(Context context) {
         Intent intent = new Intent(context, AlarmReceiver.class);
         int ALARM_TYPE_ELAPSED = 101;
         PendingIntent alarmIntentElapsed = PendingIntent.getBroadcast(context, ALARM_TYPE_ELAPSED, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManagerElapsed = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+        assert alarmManagerElapsed != null;
         alarmManagerElapsed.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES, alarmIntentElapsed);
     }
 
-    public static NotificationManager getNotificationManager(Context context) {
+    static NotificationManager getNotificationManager(Context context) {
         return (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
@@ -52,12 +54,4 @@ public class NotificationHelper {
                 PackageManager.DONT_KILL_APP);
     }
 
-    public static void disableBootReceiver(Context context) {
-        ComponentName receiver = new ComponentName(context, AlarmBootReceiver.class);
-        PackageManager pm = context.getPackageManager();
-
-        pm.setComponentEnabledSetting(receiver,
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP);
-    }
 }

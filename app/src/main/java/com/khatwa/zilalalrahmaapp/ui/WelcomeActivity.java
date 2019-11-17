@@ -2,11 +2,10 @@ package com.khatwa.zilalalrahmaapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-
-import com.khatwa.zilalalrahmaapp.R;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.khatwa.zilalalrahmaapp.Notifications.NotificationHelper;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -16,5 +15,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent MainIntent = new Intent(WelcomeActivity.this, MainActivity.class);
         startActivity(MainIntent);
         finish();
+        NotificationHelper.scheduleRepeatingRTCNotification(getApplicationContext());
+        NotificationHelper.enableBootReceiver(getApplicationContext());
     }
 }
