@@ -94,6 +94,12 @@ public class DonationFragment extends Fragment implements DonationContract.View 
         mFirebaseRemoteConfig.setConfigSettingsAsync(configBuilder.build());
 
         mFirebaseRemoteConfig.setDefaultsAsync(R.xml.remote_config_defaults);
+
+        sudaniPhoneNubmer=mFirebaseRemoteConfig.getString(SUDANI_KEY);
+        zainPhoneNubmer=mFirebaseRemoteConfig.getString(ZAIN_KEY);
+        mtnPhoneNubmer=mFirebaseRemoteConfig.getString(MTN_KEY);
+        Log.e(TAG,"phones:" +sudaniPhoneNubmer + " | " + zainPhoneNubmer + " | " + mtnPhoneNubmer);
+
         getRemoteConfigValues();
 
         return view;

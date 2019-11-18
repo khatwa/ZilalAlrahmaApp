@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Zilal Alrahma</string>
     <string name="select_network">Select Network:</string>
+    <string name="zilal_title">ZILAL ALRAHMA ORGANIZATION</string>
     <string name="sudani">Sudani</string>
     <string name="mtn">MTN</string>
     <string name="zain">Zain</string>
@@ -19,4 +20,6 @@
     <string name="educationSub">Providing textbooks to students in peripheral schools by collecting books from private schools, rehabilitating damaged ones, and then redistributing them to needy schools.</string>
     <string name="social_services_hub">Social Services Hub</string>
     <string name="social_services_hub_sub">It targets poor and needy families to raise their social level by providing direct support to small income projects for needy families or support for shelter projects and support for orphans</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
 </resources>

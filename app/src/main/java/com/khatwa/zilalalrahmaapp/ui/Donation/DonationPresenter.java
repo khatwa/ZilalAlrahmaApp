@@ -31,7 +31,7 @@ public class DonationPresenter implements DonationContract.Presenter {
             if (companyName.equals("null")){
                 view.showInputError("Please select a connection provider");
             }else {
-                view.showInputError("The lowest conversion value is 1 SDG");
+                view.showInputError("The lowest tansfer value is 1 SDG");
             }
         }
     }
