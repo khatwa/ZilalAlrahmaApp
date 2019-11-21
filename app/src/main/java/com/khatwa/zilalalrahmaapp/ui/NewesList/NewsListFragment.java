@@ -70,6 +70,8 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
 
         View myView = inflater.inflate(R.layout.fragment_last_news, container, false);
 
+//        getActivity().getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#33000000")));
+
         DaggerNewsListComponent.builder()
                 .appComponent(MyApplication.get(getActivity()).component())
                 .newsListMvpModule(new NewsListMvpModule(this))
@@ -77,6 +79,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
                 .inject(this);
 
         RecyclerView recyclerViewNewsList = myView.findViewById(R.id.recyclerViewNewsList);
+        recyclerViewNewsList.setNestedScrollingEnabled(false);
 
         newsList = new ArrayList<>();
         newsAdapter = new NewsListAdapter(this, newsList);

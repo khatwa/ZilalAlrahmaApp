@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ظلال الرحمة</string>
+    <string name="zilal_title">منظمة ظلال الرحمة</string>
     <string name="donation_now">تبرع الان</string>
     <string name="mtn">إم تي إن</string>
     <string name="select_network">إختيار الشبكة:</string>
@@ -9,7 +10,7 @@
     <string name="amount">المبلغ:</string>
     <string name="no_news">لا يوجد أخبار</string>
     <string name="communication_error">خطأ في الإتصال بالشبكة</string>
-    <string name="latest_news">اخر الأخبار</string>
+    <string name="latest_news">آخر الأخبار</string>
     <string name="donation">تبرع</string>
     <string name="news_details">تفاصيل</string>
     <string name="education">محور التعليم</string>

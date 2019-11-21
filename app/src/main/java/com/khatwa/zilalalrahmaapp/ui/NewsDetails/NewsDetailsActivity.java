@@ -30,7 +30,6 @@ public class NewsDetailsActivity extends AppCompatActivity implements NewsDetail
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_details);
 
-
         DaggerNewsDetailsComponent.builder()
                 .appComponent(MyApplication.get(this).component())
                 .newsDetailsMvpModule(new NewsDetailsMvpModule(this))

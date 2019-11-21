@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/newsListFragment"
         android:name="com.khatwa.zilalalrahmaapp.ui.NewesList.NewsListFragment"
-        android:label="@string/latest_news"
+
         tools:layout="@layout/fragment_last_news">
 
         <action
