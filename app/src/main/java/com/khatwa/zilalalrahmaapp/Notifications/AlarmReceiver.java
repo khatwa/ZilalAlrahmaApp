@@ -23,10 +23,10 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     public NotificationCompat.Builder buildLocalNotification(Context context, PendingIntent pendingIntent) {
 
-        return new NotificationCompat.Builder(context, String.valueOf(R.string.NotificationSub))
+        return new NotificationCompat.Builder(context, context.getResources().getString(R.string.NotificationSub))
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(android.R.drawable.stat_notify_sync)
-                .setContentTitle(String.valueOf(R.string.app_name))
+                .setContentTitle(context.getResources().getString(R.string.app_name))
                 .setAutoCancel(true);
     }
 }
