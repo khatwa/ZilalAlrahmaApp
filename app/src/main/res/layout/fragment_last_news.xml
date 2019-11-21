@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+
              tools:context=".ui.NewsDetails.NewsDetailsActivity" >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -36,7 +37,9 @@
             app:layout_constraintTop_toBottomOf="@+id/image_upper"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/ic_social_background">
+            android:background="@drawable/ic_social_background"
+
+            >
 
                 <ImageButton
                     android:id="@+id/Button01"
@@ -83,13 +86,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
                     android:text="@string/latest_news"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="#ffff"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/colorAccent"
                     android:textSize="25sp"
                     app:fontFamily="@font/cairo_bold"
-                    android:layout_marginStart="5dp" />
+                    android:layout_marginStart="8dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewNewsList"
@@ -97,6 +100,7 @@
                     android:layout_height="wrap_content"
                     android:clipToPadding="false"
                     android:scrollbars="vertical"
+
                      />
 
                 <ProgressBar

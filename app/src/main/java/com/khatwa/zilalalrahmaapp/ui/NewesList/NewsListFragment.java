@@ -79,6 +79,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
                 .inject(this);
 
         RecyclerView recyclerViewNewsList = myView.findViewById(R.id.recyclerViewNewsList);
+        recyclerViewNewsList.setNestedScrollingEnabled(false);
 
         newsList = new ArrayList<>();
         newsAdapter = new NewsListAdapter(this, newsList);
