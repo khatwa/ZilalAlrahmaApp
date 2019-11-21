@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.SystemClock;
 
+import java.sql.Time;
 import java.util.Calendar;
 
 import static android.content.Context.ALARM_SERVICE;
@@ -19,7 +20,9 @@ public class NotificationHelper {
     public static void scheduleRepeatingRTCNotification(Context context) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 8, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 8);
+        calendar.setFirstDayOfWeek(Calendar.FRIDAY);
+
 
         Intent intent = new Intent(context, AlarmReceiver.class);
         PendingIntent alarmIntentRTC = PendingIntent.getBroadcast(context, ALARM_TYPE_RTC, intent, PendingIntent.FLAG_UPDATE_CURRENT);

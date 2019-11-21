@@ -8,6 +8,7 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
+import com.khatwa.zilalalrahmaapp.R;
 import com.khatwa.zilalalrahmaapp.ui.MainActivity;
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -22,10 +23,10 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     public NotificationCompat.Builder buildLocalNotification(Context context, PendingIntent pendingIntent) {
 
-        return new NotificationCompat.Builder(context,"Friday")
+        return new NotificationCompat.Builder(context, String.valueOf(R.string.NotificationSub))
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(android.R.drawable.arrow_up_float)
-                .setContentTitle("Friday")
+                .setSmallIcon(android.R.drawable.stat_notify_sync)
+                .setContentTitle(String.valueOf(R.string.app_name))
                 .setAutoCancel(true);
     }
 }
