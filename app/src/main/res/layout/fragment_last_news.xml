@@ -27,9 +27,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/image_upper"
             android:text="@string/zilal_title"
             android:textColor="#ffff"
-            android:textSize="25sp"
-            app:fontFamily="@font/cairo_bold"
-           />
+            android:textSize="25sp" />
         <LinearLayout
             android:id="@+id/social_linearlayout"
             android:layout_width="200dp"
@@ -91,7 +89,6 @@
                     android:layout_marginLeft="8dp"
                     android:textColor="@color/colorAccent"
                     android:textSize="25sp"
-                    app:fontFamily="@font/cairo_bold"
                     android:layout_marginStart="8dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -110,9 +107,6 @@
                     android:layout_height="wrap_content"
                     />
         </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -70,9 +70,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
 
         View myView = inflater.inflate(R.layout.fragment_last_news, container, false);
 
-//        getActivity().getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#33000000")));
-
-        DaggerNewsListComponent.builder()
+    DaggerNewsListComponent.builder()
                 .appComponent(MyApplication.get(getActivity()).component())
                 .newsListMvpModule(new NewsListMvpModule(this))
                 .build()
@@ -91,9 +89,6 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
         recyclerViewNewsList.setAdapter(newsAdapter);
 
         progressBarLoading = myView.findViewById(R.id.progressBarLoading);
-
-        //Initializing presenter
-       // newsListPresenter = new NewsListPresenter(this);
 
         pageNo=0;
         previousTotal=0 ;
@@ -163,6 +158,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
         //Navigation.findNavController(activity,R.id.nav_host_fragment).navigate(R.id.action_lastNewsFragment_to_newsDetailsFragment, bundle);
         Intent i = new Intent(activity, NewsDetailsActivity.class) ;
         i.putExtra("newsId",newsList.get(position).getId());
+        i.putExtra("imagePath",newsList.get(position).getImagePath());
         startActivity(i);
     }
 

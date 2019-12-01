@@ -1,7 +1,5 @@
 package com.khatwa.zilalalrahmaapp.ui;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+       // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -188,7 +186,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             );
                 break;
         }
+
         mDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_menu);
+
         return true;
     }
 }
