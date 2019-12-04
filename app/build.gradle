@@ -45,6 +45,9 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.25.2'
     implementation 'javax.inject:javax.inject:1@jar'
 
+    def work_version = "2.3.0-beta01"
+    implementation "androidx.work:work-runtime:$work_version"
+
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
