@@ -2,20 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_graph"
+    android:id="@+id/main"
     app:startDestination="@id/newsListFragment">
-
 
     <fragment
         android:id="@+id/newsListFragment"
         android:name="com.khatwa.zilalalrahmaapp.ui.NewesList.NewsListFragment"
-
         tools:layout="@layout/fragment_last_news">
-
-        <action
-            android:id="@+id/action_lastNewsFragment_to_newsDetailsFragment"
-            app:destination="@+id/newsDetailsFragment" />
-
     </fragment>
 
     <fragment
@@ -23,39 +16,34 @@
         android:name="com.khatwa.zilalalrahmaapp.ui.Donation.DonationFragment"
         android:label="@string/donation"
         tools:layout="@layout/fragment_donation">
-
     </fragment>
 
     <fragment
         android:id="@+id/educationFragment"
         android:name="com.khatwa.zilalalrahmaapp.ui.education.EducationFragment"
         android:label="@string/donation"
-        tools:layout="@layout/fragment_donation">
-
+        tools:layout="@layout/education_fragment">
     </fragment>
 
     <fragment
         android:id="@+id/socialFragment"
         android:name="com.khatwa.zilalalrahmaapp.ui.socialserviceshub.SocialServicesHubFragment"
         android:label="@string/donation"
-        tools:layout="@layout/fragment_donation">
-
+        tools:layout="@layout/social_services_hub_fragment">
     </fragment>
 
     <fragment
         android:id="@+id/waterFragment"
         android:name="com.khatwa.zilalalrahmaapp.ui.wateringaxis.WateringAxisFragment"
         android:label="@string/donation"
-        tools:layout="@layout/fragment_donation">
-
+        tools:layout="@layout/watering_axis_fragment">
     </fragment>
 
     <fragment
         android:id="@+id/whoWeAreFragment"
         android:name="com.khatwa.zilalalrahmaapp.ui.whoweare.WhoWeAreFragment"
         android:label="@string/who_we_are"
-        tools:layout="@layout/fragment_donation">
-
+        tools:layout="@layout/who_we_are_fragment">
     </fragment>
 
     <fragment
