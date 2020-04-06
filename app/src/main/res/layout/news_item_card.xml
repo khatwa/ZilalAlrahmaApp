@@ -63,8 +63,7 @@
                   >
 
                 <TextView
-                        android:id="@+id/textViewNewsLocation"
-                        android:layout_width="wrap_content"
+                    android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Khartoum"
                         android:textSize="@dimen/news_date_size"

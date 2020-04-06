@@ -2,38 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/education"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.education.EducationFragment">
 
     <ImageView
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="58dp"
-        android:src="@drawable/book" />
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/ic_item_book" />
 
     <TextView
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_margin="8dp"
         android:text="@string/education" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true">
-    <TextView
-        android:layout_margin="16dp"
-        android:id="@+id/textView2"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/educationSub" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/educationSub"
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
     </ScrollView>
 
 </LinearLayout>

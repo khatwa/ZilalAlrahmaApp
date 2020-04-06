@@ -11,6 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 import com.khatwa.zilalalrahmaapp.MyApplication;
 import com.khatwa.zilalalrahmaapp.R;
@@ -23,12 +30,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import static com.khatwa.zilalalrahmaapp.ui.NewesList.GridSpacingItemDecoration.dpToPx;
 
 public class NewsListFragment extends Fragment implements NewsListContract.View, NewsItemClickListener {
@@ -39,18 +40,19 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
     private NewsListAdapter newsAdapter;
     private ProgressBar progressBarLoading;
     private static final String TAG = "NewsListFragment";
-    private int pageNo ;
+    private int pageNo;
     //Constants for load more
-    private int previousTotal ;
+    private int previousTotal;
     private boolean loading = true;
     private int visibleThreshold = 7;
     private int firstVisibleItem, visibleItemCount, totalItemCount;
     private Activity activity;
+    private NestedScrollView mNestedScrollView;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        activity= (Activity) context;
+        activity = (Activity) context;
     }
 
     private GridLayoutManager mLayoutManager;
@@ -70,7 +72,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
 
         View myView = inflater.inflate(R.layout.fragment_last_news, container, false);
 
-    DaggerNewsListComponent.builder()
+        DaggerNewsListComponent.builder()
                 .appComponent(MyApplication.get(getActivity()).component())
                 .newsListMvpModule(new NewsListMvpModule(this))
                 .build()
@@ -90,12 +92,14 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
 
         progressBarLoading = myView.findViewById(R.id.progressBarLoading);
 
-        pageNo=0;
-        previousTotal=0 ;
+        mNestedScrollView = myView.findViewById(R.id.mNestedScrollView);
+
+        pageNo = 0;
+        previousTotal = 0;
 
         newsListPresenter.getNewsListFirstPage();
 
-        recyclerViewNewsList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+      /*  recyclerViewNewsList.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -118,6 +122,33 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
                 }
 
             }
+        });  */
+
+        mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (v.getChildAt(v.getChildCount() - 1) != null) {
+                    if ((scrollY >= (v.getChildAt(v.getChildCount() - 1).getMeasuredHeight() - v.getMeasuredHeight())) &&
+                            scrollY > oldScrollY) {
+
+                        visibleItemCount = mLayoutManager.getChildCount();
+                        totalItemCount = mLayoutManager.getItemCount();
+                        firstVisibleItem = mLayoutManager.findFirstVisibleItemPosition();
+                        // Handling the infinite scroll
+                        if (loading) {
+                            if (totalItemCount > previousTotal) {
+                                loading = false;
+                                previousTotal = totalItemCount;
+                            }
+                        }
+                        if (!loading && (totalItemCount - visibleItemCount)
+                                <= (firstVisibleItem + visibleThreshold)) {
+                            newsListPresenter.getMoreData(pageNo);
+                            loading = true;
+                        }
+                    }
+                }
+            }
         });
 
         return myView;
@@ -137,7 +168,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
     public void setDataToRecyclerView(List<NewsItem> newsArrayList) {
         newsList.addAll(newsArrayList);
         newsAdapter.notifyDataSetChanged();
-        Log.e(TAG,"new data page= " + pageNo);
+        Log.e(TAG, "new data page= " + pageNo);
         pageNo++;
     }
 
@@ -153,15 +184,14 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
         if (position == -1) {
             return;
         }
-       // Bundle bundle = new Bundle();
+        // Bundle bundle = new Bundle();
         //bundle.putInt("newsId", newsList.get(position).getId());
         //Navigation.findNavController(activity,R.id.nav_host_fragment).navigate(R.id.action_lastNewsFragment_to_newsDetailsFragment, bundle);
-        Intent i = new Intent(activity, NewsDetailsActivity.class) ;
-        i.putExtra("newsId",newsList.get(position).getId());
-        i.putExtra("imagePath",newsList.get(position).getImagePath());
+        Intent i = new Intent(activity, NewsDetailsActivity.class);
+        i.putExtra("newsId", newsList.get(position).getId());
+        i.putExtra("imagePath", newsList.get(position).getImagePath());
         startActivity(i);
     }
-
 
 
 }
