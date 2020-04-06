@@ -13,5 +13,5 @@ step to contribute:
  (if you have feature `X` before start to work on it make sure to 
 `git checkout develop` then run `git checkout -b A` to create new branch named `X` then you can start working on it)
 - New feature = new branch.
-- Pushing new features to `mastet` and `develop` branches is prohibited to ensure code maintenance and quality.
+- Pushing new features to `master` and `develop` branches is prohibited to ensure code maintenance and quality.
 
