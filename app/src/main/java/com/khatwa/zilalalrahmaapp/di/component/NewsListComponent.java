@@ -2,7 +2,7 @@ package com.khatwa.zilalalrahmaapp.di.component;
 
 import com.khatwa.zilalalrahmaapp.di.module.NewsListMvpModule;
 import com.khatwa.zilalalrahmaapp.di.scope.NewsListFragmentScope;
-import com.khatwa.zilalalrahmaapp.ui.NewesList.NewsListFragment;
+import com.khatwa.zilalalrahmaapp.ui.NewsList.LastNewsFragment;
 
 import dagger.Component;
 
@@ -11,6 +11,6 @@ import dagger.Component;
 
 public interface NewsListComponent {
 
-    void inject(NewsListFragment newsListFragment);
+    void inject(LastNewsFragment lastNewsFragment);
 
 }

@@ -1,6 +1,6 @@
 package com.khatwa.zilalalrahmaapp.di.module;
 
-import com.khatwa.zilalalrahmaapp.ui.NewesList.NewsListContract;
+import com.khatwa.zilalalrahmaapp.ui.NewsList.NewsListContract;
 
 import dagger.Module;
 import dagger.Provides;

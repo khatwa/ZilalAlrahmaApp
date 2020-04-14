@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/newsListFragment">
+    app:startDestination="@id/lastNewsFragment">
 
     <fragment
-        android:id="@+id/newsListFragment"
-        android:name="com.khatwa.zilalalrahmaapp.ui.NewesList.NewsListFragment"
+        android:id="@+id/lastNewsFragment"
+        android:name="com.khatwa.zilalalrahmaapp.ui.NewsList.LastNewsFragment"
         tools:layout="@layout/fragment_last_news">
     </fragment>
 

@@ -36,7 +36,7 @@ public class DonationFragment extends Fragment implements DonationContract.View 
     private View view;
     private EditText editTextAmount;
     private RadioGroup radioGroupSIMType;
-  //  private DonationContract.Presenter presenter;
+    //  private DonationContract.Presenter presenter;
 
     @Inject
     DonationPresenter presenter;
@@ -49,11 +49,9 @@ public class DonationFragment extends Fragment implements DonationContract.View 
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -64,18 +62,18 @@ public class DonationFragment extends Fragment implements DonationContract.View 
 
         DaggerDonationComponent.builder()
                 .appComponent(MyApplication.get(getActivity()).component())
-               .donationMvpModule(new DonationMvpModule(this))
+                .donationMvpModule(new DonationMvpModule(this))
                 .build()
                 .inject(this);
         radioGroupSIMType = view.findViewById(R.id.radioGroupSIMType);
         editTextAmount = view.findViewById(R.id.editTextAmount);
         Button buttonDonation = view.findViewById(R.id.buttonDonation);
-      // presenter = new DonationPresenter(this);    // replaced by dagger2 injection
+        // presenter = new DonationPresenter(this);    // replaced by dagger2 injection
 
         buttonDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 getRemoteConfigValues();
+                getRemoteConfigValues();
                 presenter.sendUSSD(getCompanyName(), editTextAmount.getText().toString(), "0000"); // todo code parameter for zain users
             }
         });
@@ -83,7 +81,7 @@ public class DonationFragment extends Fragment implements DonationContract.View 
         // Get Firebase Remote Config instance.
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 
-         FirebaseRemoteConfigSettings.Builder configBuilder = new FirebaseRemoteConfigSettings.Builder();
+        FirebaseRemoteConfigSettings.Builder configBuilder = new FirebaseRemoteConfigSettings.Builder();
 
 
         if (BuildConfig.DEBUG) {
@@ -95,10 +93,10 @@ public class DonationFragment extends Fragment implements DonationContract.View 
 
         mFirebaseRemoteConfig.setDefaultsAsync(R.xml.remote_config_defaults);
 
-        sudaniPhoneNubmer=mFirebaseRemoteConfig.getString(SUDANI_KEY);
-        zainPhoneNubmer=mFirebaseRemoteConfig.getString(ZAIN_KEY);
-        mtnPhoneNubmer=mFirebaseRemoteConfig.getString(MTN_KEY);
-        Log.e(TAG,"phones:" +sudaniPhoneNubmer + " | " + zainPhoneNubmer + " | " + mtnPhoneNubmer);
+        sudaniPhoneNubmer = mFirebaseRemoteConfig.getString(SUDANI_KEY);
+        zainPhoneNubmer = mFirebaseRemoteConfig.getString(ZAIN_KEY);
+        mtnPhoneNubmer = mFirebaseRemoteConfig.getString(MTN_KEY);
+        Log.e(TAG, "phones:" + sudaniPhoneNubmer + " | " + zainPhoneNubmer + " | " + mtnPhoneNubmer);
 
         getRemoteConfigValues();
 
@@ -107,19 +105,19 @@ public class DonationFragment extends Fragment implements DonationContract.View 
 
     private void getRemoteConfigValues() {
 
-       sudaniPhoneNubmer=mFirebaseRemoteConfig.getString(SUDANI_KEY);
-        zainPhoneNubmer=mFirebaseRemoteConfig.getString(ZAIN_KEY);
-        mtnPhoneNubmer=mFirebaseRemoteConfig.getString(MTN_KEY);
-       mFirebaseRemoteConfig.fetchAndActivate()
+        sudaniPhoneNubmer = mFirebaseRemoteConfig.getString(SUDANI_KEY);
+        zainPhoneNubmer = mFirebaseRemoteConfig.getString(ZAIN_KEY);
+        mtnPhoneNubmer = mFirebaseRemoteConfig.getString(MTN_KEY);
+        mFirebaseRemoteConfig.fetchAndActivate()
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<Boolean>() {
                     @Override
                     public void onComplete(@NonNull Task<Boolean> task) {
                         if (task.isSuccessful()) {
                             boolean updated = task.getResult();
-                            Log.e(TAG, "values updated: " + updated + sudaniPhoneNubmer + "  " + zainPhoneNubmer +"  " + mtnPhoneNubmer );
+                            Log.e(TAG, "values updated: " + updated + sudaniPhoneNubmer + "  " + zainPhoneNubmer + "  " + mtnPhoneNubmer);
 
                         } else {
-                            Log.e(TAG,  task.getException().getMessage());
+                            Log.e(TAG, task.getException().getMessage());
                         }
 
                     }

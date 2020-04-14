@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.ui.NewesList;
+package com.khatwa.zilalalrahmaapp.ui.NewsList;
 
 import android.content.Context;
 import android.content.res.Resources;

@@ -2,51 +2,33 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mNestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mNestedScrollView"
-    tools:context=".ui.NewsDetails.NewsDetailsActivity">
+    android:background="@drawable/background_donation"
+    tools:context=".ui.NewsList.LastNewsFragment">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/image_upper"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:contentDescription="TODO"
-                android:scaleType="fitXY"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_main_upper" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/zilal_title"
-                android:textColor="#ffff"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="@+id/image_upper"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="130dp"
+            android:background="@android:color/background_light"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/social_linearlayout"
                 android:layout_width="200dp"
                 android:layout_height="80dp"
-                android:background="@drawable/ic_social_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_upper"
-
-                >
+                android:layout_gravity="center"
+                android:background="@drawable/ic_social_background">
 
                 <ImageButton
+                    android:id="@+id/button_facebook"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
@@ -54,9 +36,10 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/facebook"
                     android:cropToPadding="false"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"/>
 
                 <ImageButton
+                    android:id="@+id/button_twitter"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
@@ -64,9 +47,10 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/twitter"
                     android:cropToPadding="false"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"/>
 
                 <ImageButton
+                    android:id="@+id/button_youtube"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
@@ -74,7 +58,7 @@
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/youtube"
                     android:cropToPadding="false"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"/>
             </LinearLayout>
 
             <LinearLayout
@@ -109,8 +93,8 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f6f6f6"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.MainActivity"
+    tools:viewBindingIgnore="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,8 +34,8 @@
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
         android:background="@color/colorAccent"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/header_layout"
         app:itemBackground="@drawable/ic_item_background"
         app:itemTextColor="#ffff"
