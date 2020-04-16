@@ -1,13 +1,15 @@
-package com.khatwa.zilalalrahmaapp.ui.NewesList;
+package com.khatwa.zilalalrahmaapp.ui.NewsList;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -30,16 +32,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import static com.khatwa.zilalalrahmaapp.ui.NewesList.GridSpacingItemDecoration.dpToPx;
+import static com.khatwa.zilalalrahmaapp.ui.NewsList.GridSpacingItemDecoration.dpToPx;
 
-public class NewsListFragment extends Fragment implements NewsListContract.View, NewsItemClickListener {
+public class LastNewsFragment extends Fragment implements NewsListContract.View, NewsItemClickListener  {
 
     @Inject
-    NewsListPresenter newsListPresenter;
+    LastNewsPresenter lastNewsPresenter;
     private List<NewsItem> newsList;
     private NewsListAdapter newsAdapter;
     private ProgressBar progressBarLoading;
-    private static final String TAG = "NewsListFragment";
+    private static final String TAG = "LastNewsFragment";
     private int pageNo;
     //Constants for load more
     private int previousTotal;
@@ -57,7 +59,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
 
     private GridLayoutManager mLayoutManager;
 
-    public NewsListFragment() {
+    public LastNewsFragment() {
         // Required empty public constructor
     }
 
@@ -80,24 +82,20 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
 
         RecyclerView recyclerViewNewsList = myView.findViewById(R.id.recyclerViewNewsList);
         recyclerViewNewsList.setNestedScrollingEnabled(false);
-
         newsList = new ArrayList<>();
         newsAdapter = new NewsListAdapter(this, newsList);
-
         mLayoutManager = new GridLayoutManager(activity, 2);
         recyclerViewNewsList.setLayoutManager(mLayoutManager);
         recyclerViewNewsList.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(activity, 10), true));
         recyclerViewNewsList.setItemAnimator(new DefaultItemAnimator());
         recyclerViewNewsList.setAdapter(newsAdapter);
-
         progressBarLoading = myView.findViewById(R.id.progressBarLoading);
-
         mNestedScrollView = myView.findViewById(R.id.mNestedScrollView);
 
         pageNo = 0;
         previousTotal = 0;
 
-        newsListPresenter.getNewsListFirstPage();
+        lastNewsPresenter.getNewsListFirstPage();
 
       /*  recyclerViewNewsList.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
@@ -143,7 +141,7 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
                         }
                         if (!loading && (totalItemCount - visibleItemCount)
                                 <= (firstVisibleItem + visibleThreshold)) {
-                            newsListPresenter.getMoreData(pageNo);
+                            lastNewsPresenter.getMoreData(pageNo);
                             loading = true;
                         }
                     }
@@ -151,7 +149,50 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
             }
         });
 
+        ImageButton buttonFacebook = myView.findViewById(R.id.button_facebook);
+        ImageButton buttonTwitter = myView.findViewById(R.id.button_twitter);
+        ImageButton buttonYoutube = myView.findViewById(R.id.button_youtube);
+
+        buttonFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLink(view);
+            }
+        });
+        buttonTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLink(view);
+            }
+        });
+        buttonYoutube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLink(view);
+            }
+        });
+
         return myView;
+    }
+
+    public void openLink(View view) {
+        int id = view.getId();
+        String url = "";
+        switch (id) {
+            case R.id.button_facebook:
+                url = "https://www.facebook.com/zelalalrahma/";
+                break;
+            case R.id.button_twitter:
+                url = "https://twitter.com/zelalalrhma";
+                break;
+            case R.id.button_youtube:
+                url = "https://www.youtube.com/channel/UCKdPPLMQ6J0X65vDrt1hpgA";
+                break;
+        }
+
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 
     @Override
@@ -192,6 +233,5 @@ public class NewsListFragment extends Fragment implements NewsListContract.View,
         i.putExtra("imagePath", newsList.get(position).getImagePath());
         startActivity(i);
     }
-
 
 }

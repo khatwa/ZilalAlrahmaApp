@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.ui.NewesList;
+package com.khatwa.zilalalrahmaapp.ui.NewsList;
 
 import com.khatwa.zilalalrahmaapp.Model.NewsItem;
 
@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class NewsListPresenter implements NewsListContract.Presenter, NewsListContract.Model.OnFinishedListener {
+public class LastNewsPresenter implements NewsListContract.Presenter, NewsListContract.Model.OnFinishedListener {
     private NewsListContract.View newsListView;
 
     private NewsListModel newsListModel;
 
     @Inject
-    public NewsListPresenter(NewsListContract.View newsListView,NewsListModel newsListModel) {
+    public LastNewsPresenter(NewsListContract.View newsListView, NewsListModel newsListModel) {
         this.newsListView = newsListView;
         this.newsListModel =newsListModel;
     }

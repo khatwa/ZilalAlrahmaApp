@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
 
+        if (id != R.id.menu_latest_news)
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow);
 
         return true;

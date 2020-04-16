@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.ui.NewesList;
+package com.khatwa.zilalalrahmaapp.ui.NewsList;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -26,11 +26,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.MyViewHolder> {
 
-    private NewsListFragment newsListFragment;
+    private LastNewsFragment lastNewsFragment;
     private List<NewsItem> newsItemList;
 
-    public NewsListAdapter(NewsListFragment newsListFragment, List<NewsItem> newsItemList) {
-        this.newsListFragment = newsListFragment;
+    public NewsListAdapter(LastNewsFragment lastNewsFragment, List<NewsItem> newsItemList) {
+        this.lastNewsFragment = lastNewsFragment;
         this.newsItemList = newsItemList;
     }
 
@@ -49,7 +49,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.MyView
         holder.textViewnewsDate.setText(newsItem.getNewsDate());
 
         // loading news cover using Glide library
-        Glide.with(newsListFragment)
+        Glide.with(lastNewsFragment)
                 .load(Constants.IMAGE_BASE_URL + newsItem.getImagePath())
                 .listener(new RequestListener<Drawable>() {
                     @Override
@@ -70,7 +70,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.MyView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newsListFragment.onNewsItemClick(position);
+                lastNewsFragment.onNewsItemClick(position);
             }
         });
     }

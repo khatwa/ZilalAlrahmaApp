@@ -1,4 +1,4 @@
-package com.khatwa.zilalalrahmaapp.ui.NewesList;
+package com.khatwa.zilalalrahmaapp.ui.NewsList;
 
 public interface NewsItemClickListener {
 
